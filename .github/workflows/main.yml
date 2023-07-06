@@ -48,8 +48,9 @@ jobs:
     - name: Commit and push changes
       uses: devops-infra/action-commit-push@v0.3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        commit_message: Version updated
+        repository: Hyeong-Yun/kosa-k8s-project-frontend
+        token: ${{ secrets.MY_GITHUB_TOKEN }}
+        path: kosa-k8s-project-frontend
 
     # - name: repository checkout
     #   uses: actions/checkout@v2
