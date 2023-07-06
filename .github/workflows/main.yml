@@ -25,12 +25,6 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
-    - name: Update Version
-      run: |
-          git_hash=$(git rev-parse --short "$GITHUB_SHA")
-          version=$(cat ./charts/helm-example/values.yaml | grep version: | awk '{print $2}')
-          sed -i "s/$version/${GITHUB_REF##*/}-$git_hash/" ./charts/helm-example/values.yaml
-
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
       env:
@@ -45,6 +39,13 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_REF##*/}-$git_hash
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:${GITHUB_REF##*/}-$git_hash"
           
+
+      - name: Update Version
+        run: |
+          git_hash=$(git rev-parse --short "$GITHUB_SHA")
+          version=$(cat ./charts/helm-example/values.yaml | grep version: | awk '{print $2}')
+          sed -i "s/$version/${GITHUB_REF##*/}-$git_hash/" ./charts/helm-example/values.yaml
+
     # - name: repository checkout
     #   uses: actions/checkout@v2
     #   with:
