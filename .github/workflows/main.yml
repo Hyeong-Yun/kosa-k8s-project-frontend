@@ -49,7 +49,7 @@ jobs:
       uses: devops-infra/action-commit-push@v0.3
       with:
         repository: Hyeong-Yun/kosa-k8s-project-frontend
-        token: ${{ secrets.MY_GITHUB_TOKEN }}
+        github_token: ${{ secrets.MY_GITHUB_TOKEN }}
         path: kosa-k8s-project-frontend
 
     # - name: repository checkout
