@@ -1,4 +1,5 @@
-/* When your mouse cursor enter the background, the fading won't pause and keep playing */ 
-$('.carousel').carousel({
-    pause: "false" /* Change to true to make it paused when your mouse cursor enter the background */
-});
+const loginorout = document.getElementById("loginText")
+
+if(window.localStorage.getItem("token")){
+    loginorout.appendChild(`<a href="./login.html">Logout</a>`)
+}
