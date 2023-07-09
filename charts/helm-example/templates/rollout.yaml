@@ -16,8 +16,11 @@ spec:
       release: {{ .Release.Name }}
   strategy:
      canary:
-      stableService: {{ template "helm-example.fullname" . }}-stable
-      canaryService: {{ template "helm-example.fullname" . }}-canary
+      maxSurge: "25%"
+      maxUnavailable: 0
+      steps:
+      - setWeight: 25
+      - pause: {}  
   template:
     metadata:
       labels:
