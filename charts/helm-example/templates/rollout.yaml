@@ -20,7 +20,8 @@ spec:
       maxUnavailable: 0
       steps:
       - setWeight: 25
-      - pause: {}  
+      - pause: {}
+      - setWeight: 100
   template:
     metadata:
       labels:
