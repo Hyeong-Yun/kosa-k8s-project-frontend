@@ -15,9 +15,9 @@ spec:
       app: {{ template "helm-example.name" . }}
       release: {{ .Release.Name }}
   strategy:
-    blueGreen:
-      activeService: {{ template "helm-example.fullname" . }}
-      previewService: {{ template "helm-example.fullname" . }}-preview
+    canary:
+      stableService: {{ template "helm-example.fullname" . }}-stable
+      canaryService: {{ template "helm-example.fullname" . }}-canary   
   template:
     metadata:
       labels:
