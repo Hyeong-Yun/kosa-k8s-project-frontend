@@ -1,21 +1,3 @@
-kubectl create namespace argo-rollouts
-
-kubectl apply -n argo-rollouts -f https://github.com/argoproj/argo-rollouts/releases/latest/download/install.yaml
-
-curl -LO https://github.com/argoproj/argo-rollouts/releases/latest/download/kubectl-argo-rollouts-linux-amd64
-
-sudo install -o root -g root -m 0755 kubectl-argo-rollouts-linux-amd64 /usr/local/bin/kubectl-argo-rollouts
-
-
- canary:
-      stableService: {{ template "helm-example.fullname" . }}-stable
-      canaryService: {{ template "helm-example.fullname" . }}-canary  
-
-- 참고 깃허브 : https://github.com/jakuboskera/blue-green-canary-argocd-rollouts/blob/main/charts/canary/templates/rollout.yaml
-
-
--- Rollout.yaml
-
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
