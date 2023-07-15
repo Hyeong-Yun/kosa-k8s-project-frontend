@@ -32,7 +32,7 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIp
+  type: LoadBalancer
   port: 80
 
 ingress:
