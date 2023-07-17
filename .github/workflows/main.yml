@@ -57,7 +57,7 @@ jobs:
           cd k8s-manifest-repo/base
           kustomize edit set image ${{ steps.login-ecr.outputs.registry}}/${{ steps.image-info.outputs.ecr_repository }}=${{ steps.login-ecr.outputs.registry}}/${{ steps.image-info.outputs.ecr_repository }}:${{ steps.image-info.outputs.image_tag }}
           cat kustomization.yaml
-      
+          
       - name: Commit files
         run: |
           cd k8s-manifest-repo
