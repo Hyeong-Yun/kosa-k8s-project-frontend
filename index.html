@@ -402,52 +402,6 @@ footer{
 }
 
   </style>
-  <script>
-
-  ///API gateway
-
-  function sendClickStream(productName) {
-  let clickData = {
-    // timestamp: new Date().toISOString(),
-    // element: "product",
-    // action: "click",
-    // product: productName
-        event_time : "",
-        event_type: "",
-        product_id: 1234,
-        category_id : 123456,
-        category_code : "Hello World",
-        brand : "Hello",
-        price : 489.07,
-        user_id : 1235467
-  };
-​
-  // API Gateway 주소
-  let apiEndpoint = "https://4a6653py84.execute-api.ap-northeast-2.amazonaws.com/prod/v1";
-​
-  // JSON 데이터를 서버로 전송하는 fetch 요청
-  fetch(apiEndpoint, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(clickData)
-  })
-    .then(function(response) {
-      if (response.ok) {
-        console.log("Clickstream data sent successfully!");
-      } else {
-        console.error("Failed to send clickstream data. Status code: " + response.status);
-      }
-    })
-    .catch(function(error) {
-      console.error("Error sending clickstream data:", error);
-    });
-}
-
-  </script>
-  <!-- <link rel="stylesheet" type="text/css" href = "./style.css">
-  <script src = "./main.js"></script> -->
 </head>
 <body>
   <nav>
@@ -554,8 +508,8 @@ footer{
 
         <div class="column-xs-12 column-md-3" onclick="window.location.href=`https://kato.yunhyeong.shop/commodity`">
           <a href="#">
-            <figure onclick="sendClickStream('밤나무 자동차')">
-              <div class="img-container">
+            <figure >
+              <div class="img-container" id = "bamnamu">
                 <img src="https://ae01.alicdn.com/kf/Ha123ad2e4e72410b97c53f02a3f62a69e/2.jpg_Q90.jpg_.webp">
               </div>
               <figcaption>
@@ -566,10 +520,10 @@ footer{
           </a>
         </div>
 
-        <div class="column-xs-12 column-md-3" onclick="window.location.href=`https://kato.yunhyeong.shop/product`">
+        <div class="column-xs-12 column-md-3" onclick="window.location.href=`https://kato.yunhyeong.shop/buz`">
           <a href="#">
-            <figure onclick="sendClickStream('버즈 라이트 이어')">
-              <div class="img-container">
+            <figure>
+              <div class="img-container" id = "buz">
                 <img src="https://images.unsplash.com/photo-1581557991964-125469da3b8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MjN8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
               </div>
               <figcaption>
@@ -581,8 +535,8 @@ footer{
         </div>
         <div class="column-xs-12 column-md-3" onclick="window.location.href=`https://kato.yunhyeong.shop/product`">
           <a href="#">
-            <figure onclick="sendClickStream('뚱랑이 스트레스볼')">
-              <div class="img-container">
+            <figure>
+              <div class="img-container" id = "pig">
                 <img src="https://contents.sixshop.com/thumbnails/uploadedFiles/56465/product/image_1686551862380_1000.jpg">
               </div>
               <figcaption>
@@ -725,5 +679,126 @@ footer{
         </section>
     </div>
   </footer>
+
+  <script>
+
+    ///API gateway
+    document.getElementById("bamnamu").addEventListener("click", (e) =>{
+    let clickData = {
+      // timestamp: new Date().toISOString(),
+      // element: "product",
+      // action: "click",
+      // product: productName
+          event_time : "event_time",
+          event_type: "dafadfsda",
+          product_id: "1234",
+          category_id : "123456",
+          category_code : "Hello World",
+          price : "489.07",
+          user_id : "1235467"
+    };
+  
+    console.log("in");
+  
+  
+    let apiEndpoint = "https://4a6653py84.execute-api.ap-northeast-2.amazonaws.com/PROD/v1";
+  
+    fetch(apiEndpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(clickData)
+    })
+      .then(function(response) {
+        if (response.ok) {
+          console.log("Clickstream data sent successfully!");
+        } else {
+          console.error("Failed to send clickstream data. Status code: " + response.status);
+        }
+      })
+      .catch(function(error) {
+        console.error("Error sending clickstream data:", error);
+      });
+    })
+
+
+    document.getElementById("buz").addEventListener("click", (e) =>{
+    let clickData = {
+      // timestamp: new Date().toISOString(),
+      // element: "product",
+      // action: "click",
+      // product: productName
+          event_time : "event_time",
+          event_type: "dafadfsda",
+          product_id: "1234",
+          category_id : "123456",
+          category_code : "Hello World",
+          price : "489.07",
+          user_id : "1235467"
+    };
+  
+    console.log("in");
+  
+  
+    let apiEndpoint = "https://4a6653py84.execute-api.ap-northeast-2.amazonaws.com/PROD/v1";
+  
+    fetch(apiEndpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(clickData)
+    })
+      .then(function(response) {
+        if (response.ok) {
+          console.log("Clickstream data sent successfully!");
+        } else {
+          console.error("Failed to send clickstream data. Status code: " + response.status);
+        }
+      })
+      .catch(function(error) {
+        console.error("Error sending clickstream data:", error);
+      });
+    })
+    document.getElementById("pig").addEventListener("click", (e) =>{
+    let clickData = {
+      // timestamp: new Date().toISOString(),
+      // element: "product",
+      // action: "click",
+      // product: productName
+          event_time : "event_time",
+          event_type: "dafadfsda",
+          product_id: "1234",
+          category_id : "123456",
+          category_code : "Hello World",
+          price : "489.07",
+          user_id : "1235467"
+    };
+  
+    console.log("in");
+  
+  
+    let apiEndpoint = "https://4a6653py84.execute-api.ap-northeast-2.amazonaws.com/PROD/v1";
+  
+    fetch(apiEndpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(clickData)
+    })
+      .then(function(response) {
+        if (response.ok) {
+          console.log("Clickstream data sent successfully!");
+        } else {
+          console.error("Failed to send clickstream data. Status code: " + response.status);
+        }
+      })
+      .catch(function(error) {
+        console.error("Error sending clickstream data:", error);
+      });
+    })
+    </script>
 </body>
 </html>
