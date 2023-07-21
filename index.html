@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kato Toys</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
     @import url('https://fonts.googleapis.com/css?family=Nunito:400,600,700,800,900|Open+Sans:400,600');
  * {
@@ -99,6 +102,7 @@ html {
 
  nav ul a {
 	 color: #999;
+   font-size: 1rem;
 }
  nav ul a:hover {
 	 color: #322e40;
@@ -145,19 +149,28 @@ html {
 .grid {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
  nav .grid > [class*="column-"] {
 	 padding: 0 1rem;
-}
+  }
+
  #logo {
-	 font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto Mono', monospace;
 	 font-weight: 600;
-	 font-size: 1.25rem;
+	 font-size: 1.35rem;
 	 margin: 0;
-	 color: #322e40;
+	 color: #ff5d33;
 }
- .container {
+
+#logo img{
+  width: 90px;
+  height: 30px;
+  height: auto;
+}
+
+.container {
 	 max-width: 100%;
 }
  header section {
@@ -196,7 +209,7 @@ html {
 
  img {
 	 display: block;
-	 width: 100%;
+	 width: 95%;
 	 height: 100%;
 	 object-fit: cover;
 }
@@ -245,6 +258,7 @@ html {
 
  figure > .img-container img {
 	 transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+   border-radius: 20px;
 	 transform: scale(1);
 }
 
@@ -259,10 +273,11 @@ html {
 }
  footer {
 	 text-align: center;
+   background-color: #f3f1f1;
 }
  footer section {
 	 padding: 2rem 0;
-	 border-top: 1px solid #cfcfcf;
+	 border-top: 1px solid #faf9f9;
 }
  footer .footer-nav li {
 	 display: inline-block;
@@ -317,7 +332,70 @@ html {
 	}
 }
  
+figcaption h3{
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: 'Noto Sans';
+  color: #2B2730;
+}
 
+footer{
+  display: flex;
+  justify-content: center;  
+}
+.content-container{
+  display: flex;
+  align-items: center;
+  width: 80%;
+  justify-content: space-around;
+  height: 230px;
+}
+
+.content-container img{
+  width: 200px;
+
+}
+
+
+.content ul{
+  display: flex;
+  font-weight: bold;
+  color: #aeacac;
+  font-family:  'Roboto';
+}
+
+.content ul li:first-child{
+  color: #000;
+  font-weight: bold;
+
+}
+
+.content ul li{
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.content ul li:hover{
+  color: #ff714c;
+}
+.img-container{
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  padding: 0;
+  justify-content: center;
+}
+
+.pcontainer{
+  padding:0;
+  display: flex;
+  margin-top:-10px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-right: 15%;
+  font-size:0.7rem;
+}
 
   </style>
   <script>
@@ -337,8 +415,6 @@ html {
     });
     console.log(tags)
   })
-
-
   .catch(error => {
     console.error('API 요청 중 오류 발생:', error);
   });
@@ -351,7 +427,7 @@ html {
     <div class="container">
       <div class="grid">
         <div class="column-xs-6 column-sm-3">
-          <p id="logo">Hello Toys</p>
+          <p id="logo">ToyDream</p>
         </div>
         <div class="column-xs-6 column-sm-9 nav-list-container">
           <div class="toggle-btn">
@@ -362,7 +438,7 @@ html {
             <li class="nav-item"><a href="#">About</a></li>
             
             <li class="nav-item" id = "loginText"><a href="https://kato.yunhyeong.shop/login">Login</a></li>
-            <li class="nav-item"><a href="#">Cart (0)</a></li>
+            <li class="nav-item"><a href="#">Cart</a></li>
           </ul>
         </div>
       </div>
@@ -384,10 +460,9 @@ html {
     <div class="container">
       <section id="blog" class="grid products" >
         <div class="column-xs-12 text-center">
-          <h2>오늘의 추천 상품!</h2>
+          <h3>오늘의 추천 상품!</h3>
         </div>
         <div class = "new-arrivals">
-
         <div class="column-xs-12 column-md-3" onclick="window.location.href=`https://kato.yunhyeong.shop/product`">
           <a href="#">
             <figure>
@@ -395,8 +470,8 @@ html {
                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1159990/toy1.jpg">
               </div>
               <figcaption>
-                <h3>Construction Set</h3>
-                <p class="price">$10.99</p>
+                <h3>원통 쌓기 블록</h3>
+                <p class="price">12,000원</p>
               </figcaption>
             </figure>
           </a>
@@ -409,8 +484,8 @@ html {
                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1159990/toy2.jpg">
               </div>
               <figcaption>
-                <h3>Soft Pink Bunny</h3>
-                <p class="price">$9.99</p>
+                <h3>소프트 토끼 인형</h3>
+                <p class="price">22,000원</p>
               </figcaption>
             </figure>
           </a>
@@ -422,8 +497,8 @@ html {
                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1159990/toy3.jpg">
               </div>
               <figcaption>
-                <h3>Ring Stacker Toy</h3>
-                <p class="price">$10.99</p>
+                <h3>링 스태커 장난감</h3>
+                <p class="price">15,000원</p>
               </figcaption>
             </figure>
           </a>
@@ -435,8 +510,8 @@ html {
                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1159990/toy4.jpg">
               </div>
               <figcaption>
-                <h3>Coil Spring Toy</h3>
-                <p class="price">$10.99</p>
+                <h3>코일 스프링 장난감</h3>
+                <p class="price">8,000원</p>
               </figcaption>
             </figure>
           </a>
@@ -446,7 +521,7 @@ html {
 
       <section id="blog" class="grid products">
         <div class="column-xs-12 text-center" >
-          <h2>지금 뜨고 있는 상품!</h2>
+          <h3>지금 뜨고 있는 상품!</h3>
         </div>
         <div class = "new-arrivals">
 
@@ -457,8 +532,8 @@ html {
                 <img src="https://ae01.alicdn.com/kf/Ha123ad2e4e72410b97c53f02a3f62a69e/2.jpg_Q90.jpg_.webp">
               </div>
               <figcaption>
-                <h3>Chestnut car toy</h3>
-                <p class="price">$10.99</p>
+                <h3>밤나무 자동차 장난감</h3>
+                <p class="price">25,000원</p>
               </figcaption>
             </figure>
           </a>
@@ -468,11 +543,11 @@ html {
           <a href="#">
             <figure>
               <div class="img-container">
-                <img src="https://www.gabe.or.kr/img/intro/jun1.jpg">
+                <img src="https://images.unsplash.com/photo-1581557991964-125469da3b8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MjN8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
               </div>
               <figcaption>
-                <h3>Soft Pink Bunny</h3>
-                <p class="price">$9.99</p>
+                <h3>버즈 라이트 이어</h3>
+                <p class="price">30,000원</p>
               </figcaption>
             </figure>
           </a>
@@ -485,7 +560,7 @@ html {
               </div>
               <figcaption>
                 <h3>뚱랑이 스트레스볼</h3>
-                <p class="price">$10.99</p>
+                <p class="price">20,000원</p>
               </figcaption>
             </figure>
           </a>
@@ -495,6 +570,69 @@ html {
             <figure>
               <div class="img-container">
                 <img src="https://contents.sixshop.com/thumbnails/uploadedFiles/56465/product/image_1670409728147_1000.jpg">
+              </div>
+              <figcaption>
+                <h3>포르미 스트레스볼</h3>
+                <p class="price">20,000원</p>
+              </figcaption>
+            </figure>
+          </a>
+        </div>
+      </div>
+      </section>
+
+
+      <section id="blog" class="grid products">
+        <div class="column-xs-12 text-center" >
+          <h3>금주의 PICK!</h3>
+        </div>
+        <div class = "new-arrivals">
+
+        <div class="column-xs-12 column-md-3" onclick="window.location.href=`https://kato.yunhyeong.shop/product`">
+          <a href="#">
+            <figure>
+              <div class="img-container">
+                <img src="https://m.ikonih.co.kr/web/product/extra/big/20200212/e56dae374faef3845eb6d55dbb9f7aca.jpg">
+              </div>
+              <figcaption>
+                <h3>정비사 세트</h3>
+                <p class="price">28,000원</p>
+              </figcaption>
+            </figure>
+          </a>
+        </div>
+
+        <div class="column-xs-12 column-md-3" onclick="window.location.href=`https://kato.yunhyeong.shop/product`">
+          <a href="#">
+            <figure>
+              <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1508896694512-1eade558679c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MzZ8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
+              </div>
+              <figcaption>
+                <h3>자동차 프라모델</h3>
+                <p class="price">32,000원</p>
+              </figcaption>
+            </figure>
+          </a>
+        </div>
+        <div class="column-xs-12 column-md-3" onclick="window.location.href=`https://kato.yunhyeong.shop/product`">
+          <a href="#">
+            <figure>
+              <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1585366119957-e9730b6d0f60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGVnb3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60">
+              </div>
+              <figcaption>
+                <h3>스타워즈 레고 세트</h3>
+                <p class="price">26,000원</p>
+              </figcaption>
+            </figure>
+          </a>
+        </div>
+        <div class="column-xs-12 column-md-3" onclick="window.location.href=`https://kato.yunhyeong.shop/product`">
+          <a href="#">
+            <figure>
+              <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1575364289437-fb1479d52732?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTd8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60">
               </div>
               <figcaption>
                 <h3>포르미 스트레스볼</h3>
@@ -512,18 +650,52 @@ html {
     </div>
   </main>
   <footer>
-    <div class="container">
-      <section class="grid">
-        <div class="column-xs-12">
-          <ul class="footer-nav">
-            <li><a href="https://twitter.com/kato_katherine"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://www.instagram.com/kathy.kato"><i class="fab fa-instagram"></i></a></li>
-          </ul>
-        </div>
-        <div class="column-xs-12">
-          <p class="copyright">&copy; Copyright 2019 Katherine Kato. Images from <a href="https://photos.icons8.com/" target="_blank">Icons8</a>.</p>
-        </div>
-      </section>
+          <div class="content-container">
+            <div class="content">
+              <ul>
+              <li>ToyDream</li>
+              <li>About</li>
+              <li>Blog</li>
+              <li>Podcast</li>
+              <li>Documentation</li>
+              <li>Support</li>
+              <li>Advertising</li>
+            </ul>
+            <ul>
+              <li>For</li>
+              <li>Teams</li>
+              <li>Education</li>
+              <li>Privacy</li>
+              <li>Embeds</li>
+              <li>Asset</li>
+              <li>Hosting</li>
+            </ul>
+            <ul>
+              <li>Social</li>
+              <li>YouTube</li>
+              <li>Twitter</li>
+              <li>Instagram</li>
+              <li>Mastodon</li>
+            </ul>
+            <ul>
+              <li>Comminity</li>
+              <li>Spark</li>
+              <li>Challenges</li>
+              <li>Podcast</li>
+              <li>Topics</li>
+              <li>CodeofConduct</li>
+            </ul>
+          </div>
+          <div class="img-container">
+            <div>
+              <img src="https://s3.ap-northeast-2.amazonaws.com/seoul.yunhyeong.shop/toy-dream-low-resolution-color-logo__1_-removebg-preview.png" alt="logo">
+            </div>
+            <div class = "pcontainer">
+              <span>2023 toydream</span>
+              <span>TermsofService-Privacy Policy</span>
+            </div>
+          </div>
+        </section>
     </div>
   </footer>
 </body>
