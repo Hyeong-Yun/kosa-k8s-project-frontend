@@ -4,7 +4,7 @@ if(window.localStorage.getItem("token")){
     loginorout.appendChild(`<a href="./login.html">Logout</a>`)
 }
 
-fetch('https://43.201.5.234:8080/products')
+fetch('http://3.38.245.204:8081/products')
   .then(response => response.json())
   .then(data => {
     // 데이터를 기반으로 HTML 요소 생성
