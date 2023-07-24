@@ -15,9 +15,14 @@
  *::before, *::after {
 	 box-sizing: border-box;
 }
+
 html {
   width: 100%;
+ 
 }
+
+
+
  body {
 	 font-family: 'Open Sans', sans-serif;
    width: 100%;
@@ -27,7 +32,7 @@ html {
 	 margin: 0;
 	 padding: 0;
 	 color: #686574;
-	 background: #fff;
+   background: var(--background);
 	 text-rendering: optimizeLegibility;
 }
  h1, h2, h3 {
@@ -154,6 +159,7 @@ html {
 
  nav .grid > [class*="column-"] {
 	 padding: 0 1rem;
+   
   }
 
  #logo {
@@ -161,7 +167,8 @@ html {
 	 font-weight: 600;
 	 font-size: 1.35rem;
 	 margin: 0;
-	 color: #ff5d33;
+	 /* color: #ff5d33; */
+   color: #6DA9E4;
 }
 
 #logo img{
@@ -231,10 +238,10 @@ html {
 	 text-transform: uppercase;
 	 cursor: pointer;
 	 letter-spacing: 0.0625rem;
-	 background: #ff714c;
+	 background: #6DA9E4;
 }
  .btn:hover {
-	 background: #ff5d33;
+    background: #5490cc;
 }
  .text-center {
 	 text-align: center;
@@ -301,7 +308,8 @@ html {
 		 font-size: 1.125rem;
 	}
 	 header {
-		 background: #f8f4ed url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1159990/toys.png) no-repeat center top/auto;
+		 background: #f8f4ed url(https://s3.ap-northeast-2.amazonaws.com/seoul.yunhyeong.shop/Colorful+Playful+Kids.png) no-repeat center top/auto;
+     background-size: 100%;
 	}
 	 h1 {
 		 font-size: 3.5rem;
@@ -356,9 +364,7 @@ footer{
 
 .content-container img{
   width: 200px;
-
 }
-
 
 .content ul{
   display: flex;
@@ -429,9 +435,10 @@ footer{
     <div class="container">
       <section class="grid intro">
         <div class="column-xs-12 column-md-5">
-          <h1>모든 연령대의 아이들을 위한 장난감</h1>
-          <p class="lead">모든 연령대의 아이들이 즐기는 창의적인 장난감!</p>
-          <a class="btn fill" href="#">Shop now</a>
+          <!-- <h2>ToyDream</h2>
+          <p class="lead">주간 장난감 및 리뷰 게임</p>
+          <a class="btn fill" href="#">Shop now</a> -->
+      
         </div>
       </section>
     </div>
@@ -681,7 +688,11 @@ footer{
   </footer>
 
   <script>
-
+    const darkmodeBtn = document.querySelector(".darkmode-btn");
+    darkmodeBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.documentElement.setAttribute('color-theme', 'dark')
+    })
     ///API gateway
     document.getElementById("bamnamu").addEventListener("click", (e) =>{
     let clickData = {
